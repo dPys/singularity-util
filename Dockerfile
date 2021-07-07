@@ -14,7 +14,7 @@ LABEL architecture="x86_64"                                \
       version="$VERSION"                                   \
       vcs-ref="$VCS_REF"                                   \
       vcs-type="git"                                       \
-      vcs-url="https://github.com/arc-ts/singularity-util" \
+      vcs-url="https://github.com/dPys/singularity-util.git" \
       singularity.version="$SINGULARITY_VERSION"
 
 RUN apt-get update     \
