@@ -53,4 +53,7 @@ RUN chmod +x ./build.sh \
 
 USER root
 
+RUN chown root:root /usr/local/libexec/singularity/bin/action-suid \
+ && chmod 4755 /usr/local/libexec/singularity/bin/action-suid
+
 ENTRYPOINT [ "./init.sh" ]
