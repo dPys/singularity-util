@@ -48,4 +48,8 @@ RUN chmod +x ./build.sh \
  && sync \
  && ./build.sh
 
+COPY ./image.expand /usr/local/libexec/singularity/cli/image.expand.exec
+
+RUN chmod +x /usr/local/libexec/singularity/cli/image.expand.exec
+
 ENTRYPOINT [ "./init.sh" ]
