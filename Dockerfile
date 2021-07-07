@@ -44,11 +44,11 @@ COPY ./skel /
 
 RUN chmod +x ./build.sh \
  && sync \
- && chmod +x /init.sh  \
+ && chmod +x ./init.sh  \
  && sync \
- && /build.sh
+ && ./build.sh
 
-COPY /image.expand /usr/local/libexec/singularity/cli/image.expand.exec
+COPY ./image.expand.exec /usr/local/libexec/singularity/cli/image.expand.exec
 
 RUN chmod +x /usr/local/libexec/singularity/cli/image.expand.exec
 
