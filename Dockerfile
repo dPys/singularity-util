@@ -37,6 +37,7 @@ RUN apt-get update     \
     curl	    \
  && mkdir build     \
  && mkdir target    \
+ && chmod -R 777 /target \
  && apt-get -y autoremove \
  && apt-get -y clean      \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -49,5 +50,7 @@ RUN chmod +x ./build.sh \
  && sync \
  && ./build.sh \
  && curl https://raw.githubusercontent.com/cinek810/singularity/13a0b2e97b25e9324eb0450cf36df8a667e1556b/libexec/cli/image.expand.exec > /usr/local/libexec/singularity/cli/image.expand.exec
+
+USER root
 
 ENTRYPOINT [ "./init.sh" ]
