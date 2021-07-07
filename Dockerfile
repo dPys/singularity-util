@@ -34,6 +34,7 @@ RUN apt-get update     \
     rpm             \
     sudo            \
     squashfs-tools  \
+    curl	    \
  && mkdir build     \
  && mkdir target    \
  && apt-get -y autoremove \
@@ -46,10 +47,7 @@ RUN chmod +x ./build.sh \
  && sync \
  && chmod +x ./init.sh  \
  && sync \
- && ./build.sh
-
-COPY ./image.expand.exec /usr/local/libexec/singularity/cli/image.expand.exec
-
-RUN chmod +x /usr/local/libexec/singularity/cli/image.expand.exec
+ && ./build.sh \
+ && curl https://raw.githubusercontent.com/cinek810/singularity/13a0b2e97b25e9324eb0450cf36df8a667e1556b/libexec/cli/image.expand.exec > /usr/local/libexec/singularity/cli/image.expand.exec
 
 ENTRYPOINT [ "./init.sh" ]
