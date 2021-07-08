@@ -85,7 +85,7 @@ EOF
 
 main() {
   case "${1,,}" in
-    bootstrap|copy|create|expand|exec|export|import|run|shell|test) s_cmd "$@" ;;
+    bootstrap|copy|create|image.expand|exec|export|import|run|shell|test) s_cmd "$@" ;;
     build) shift; s_build "$@" ;;
     debug) shift; exec /bin/bash -c "$@" ;;
     *) usage ;;
