@@ -42,7 +42,7 @@ RUN apt-get update     \
  && apt-get -y clean      \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN adduser sudo root
+RUN adduser root sudo
 
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
 /etc/sudoers
