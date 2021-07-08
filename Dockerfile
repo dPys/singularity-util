@@ -39,10 +39,15 @@ RUN apt-get update     \
  && mkdir target    \
  && chmod -R 777 /target \
  && apt-get -y autoremove \
- && useradd -m docker && echo "docker:docker" | chpasswd && adduser --disabled-password --gecos '' docker sudo \
- && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
  && apt-get -y clean      \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN adduser --disabled-password --gecos '' docker
+
+RUN adduser docker sudo
+
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
+/etc/sudoers
 
 COPY ./skel /
 
@@ -55,6 +60,8 @@ RUN chmod +x ./build.sh \
  && curl https://raw.githubusercontent.com/cinek810/singularity/13a0b2e97b25e9324eb0450cf36df8a667e1556b/libexec/cli/image.expand.exec > /usr/local/libexec/singularity/cli/image.expand.exec
 
 USER docker
+
+RUN sudo apt-get update 
 
 CMD /bin/bash
 
