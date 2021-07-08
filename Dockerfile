@@ -53,11 +53,9 @@ RUN chmod +x ./build.sh \
  && sync \
  && chmod +x ./init.sh  \
  && sync \
- && ./build.sh
-
-USER docker
-
-RUN sudo apt-get update 
+ && ./build.sh \
+ && chown root:root /usr/bin/sudo \
+ && chmod 4755 /usr/bin/sudo
 
 CMD /bin/bash
 
