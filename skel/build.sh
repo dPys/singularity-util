@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export SINGULARITY_VERSION="2.6.1"
+export SINGULARITY_VERSION="3.7.2"
+#export SINGULARITY_VERSION="2.6.1"
 cd build || exit 1
 git clone https://github.com/sylabs/singularity.git
 cd singularity || exit 1
