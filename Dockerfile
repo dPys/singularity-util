@@ -55,9 +55,7 @@ RUN chmod +x ./build.sh \
  && sync \
  && chmod +x ./init.sh  \
  && sync \
- && ./build.sh \
- && chmod 777 -R /usr/local/libexec/singularity \
- && curl https://raw.githubusercontent.com/cinek810/singularity/13a0b2e97b25e9324eb0450cf36df8a667e1556b/libexec/cli/image.expand.exec > /usr/local/libexec/singularity/cli/image.expand.exec
+ && ./build.sh
 
 USER docker
 
